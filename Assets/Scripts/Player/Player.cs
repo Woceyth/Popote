@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
         go_inventoryFrame.SetActive(b_active);
         go_backgroundImage.SetActive(b_active);
         go_closeButton.SetActive(b_active);
+        go_coinsLabel.SetActive(b_active);
     }
 
     // Update is called once per frame

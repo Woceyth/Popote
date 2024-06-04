@@ -7,7 +7,7 @@ public class StoreManager : MonoBehaviour
     public static StoreManager Instance;
 
     public int i_itemCost;
-    public int i_playerMoney;
+    private int i_playerMoney;
 
     private void OnEnable()
     {
@@ -29,14 +29,7 @@ public class StoreManager : MonoBehaviour
         Player.Instance.SetMoneyQuantity(i_playerMoney);
     }
 
-    /// <summary>
-    /// Sell a product and add money
-    /// </summary>
-    public void SellItemAndAddMoney()
-    {
-        i_playerMoney = Player.Instance.GetMoneyQuantity() + i_itemCost;
-        Player.Instance.SetMoneyQuantity(i_playerMoney);
-    }
+    
 
     private void OnDisable()
     {

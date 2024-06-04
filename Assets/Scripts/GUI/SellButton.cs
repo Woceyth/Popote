@@ -10,6 +10,6 @@ public class SellButton : MonoBehaviour
     public void PurchaseProduct()
     {
         Debug.Log("BUY");
-        StoreManager.Instance.SellItemAndAddMoney();
+        InventoryManager.Instance.SellItemAndAddMoney();
     }
 }

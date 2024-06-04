@@ -6,21 +6,26 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    public int i_itemCost;
+    private int i_playerMoney;
+
     private void OnEnable()
     {
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetProductCostToSell(int productsCost)
     {
-        
+        i_itemCost = productsCost;
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Sell a product and add money
+    /// </summary>
+    public void SellItemAndAddMoney()
     {
-        
+        i_playerMoney = Player.Instance.GetMoneyQuantity() + i_itemCost;
+        Player.Instance.SetMoneyQuantity(i_playerMoney);
     }
 
     private void OnDisable()
