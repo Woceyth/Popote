@@ -39,6 +39,15 @@ public class StoreManager : MonoBehaviour
         Player.Instance.SetMoneyQuantity(i_playerMoney);
     }
 
+    /// <summary>
+    /// Sell a product and add money
+    /// </summary>
+    public void SellItemAndAddMoney()
+    {
+        i_playerMoney = Player.Instance.GetMoneyQuantity() + i_itemCost;
+        Player.Instance.SetMoneyQuantity(i_playerMoney);
+    }
+
     private void OnDisable()
     {
         Instance = null;
