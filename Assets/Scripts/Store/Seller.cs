@@ -15,5 +15,6 @@ public class Seller : MonoBehaviour
         go_storeFrame.SetActive(true);
         go_backgroundImage.SetActive(true);
         go_closeButton.SetActive(true);
+        Cursor.visible = true;
     }
 }

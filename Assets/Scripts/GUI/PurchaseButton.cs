@@ -10,6 +10,6 @@ public class PurchaseButton : MonoBehaviour
     public void PurchaseProduct()
     {
         Debug.Log("BUY");
-        StoreManager.Instance.SetProductCostToPurchase(Products.Hood1);
+        //StoreManager.Instance.SetProductCostToPurchase(Products.Hood1);
     }
 }
