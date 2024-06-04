@@ -4,22 +4,49 @@ using UnityEngine;
 
 public class StoreManager : MonoBehaviour
 {
+    public static StoreManager Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    public int i_itemCost;
+    public int i_playerMoney;
+
+    private void OnEnable()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetProductCostToPurchase(Products productsCost)
     {
-        
+        switch (productsCost)
+        {
+            case Products.Hood1:
+                i_itemCost = 1;
+                break;
+            case Products.Hood2:
+                i_itemCost = 2;
+                break;
+            default:
+                break;
+        }
     }
 
-    void PurchaseItem()
+    /// <summary>
+    /// Make the purchase and substract the money
+    /// </summary>
+    /// <param name="cost"></param>
+    public void PurchaseItemAndSubstractMoney()
     {
-        int i_cost = 10;
-        int i_playerMoney = Player.Instance.GetMoneyQuantity();
+        i_playerMoney = Player.Instance.GetMoneyQuantity() - i_itemCost;
+        Player.Instance.SetMoneyQuantity(i_playerMoney);
     }
+
+    private void OnDisable()
+    {
+        Instance = null;
+    }
+}
+
+public enum Products
+{
+    Hood1,
+    Hood2,
 }

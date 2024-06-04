@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class Player : MonoBehaviour
 {
     public static Player Instance;
@@ -15,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject go_backgroundImage;
     public GameObject go_closeButton;
     public GameObject go_inventoryFrame;
+    public GameObject go_coinsLabel;
 
     private Vector2 v2_movementDirection;
     private float f_directionRecoded = 1f;
@@ -59,11 +59,19 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3( f_directionRecoded, 1f, 1f );
     }
 
+    /// <summary>
+    /// Get the current quantity you have at the moment
+    /// </summary>
+    /// <returns></returns>
     public int GetMoneyQuantity()
     {
         return i_Money;
     }
 
+    /// <summary>
+    /// Set the new quantity you have
+    /// </summary>
+    /// <param name="newQuantity"></param>
     public void SetMoneyQuantity( int newQuantity)
     {
         i_Money = newQuantity;
