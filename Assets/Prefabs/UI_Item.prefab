@@ -511,6 +511,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i_itemID: 0
   go_iconFrame: {fileID: 4866066096812748719}
+  s_icon: {fileID: 1518435252942889157}
+  t_name: {fileID: 8883912932810014201}
+  t_description: {fileID: 0}
+  t_cost: {fileID: 1293303256903127379}
 --- !u!1 &6490813892770928587
 GameObject:
   m_ObjectHideFlags: 0

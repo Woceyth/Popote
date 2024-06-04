@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     public void SetMoneyQuantity( int newQuantity)
     {
         i_Money = newQuantity;
+        Debug.Log("i_Money: " + i_Money);
     }
 
     private void OnDestroy()

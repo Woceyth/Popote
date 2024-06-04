@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PurchaseButton : MonoBehaviour
+public class SellButton : MonoBehaviour
 {
     /// <summary>
-    /// Purchase your item
+    /// Sell your item
     /// </summary>
     public void PurchaseProduct()
     {
         Debug.Log("BUY");
-        StoreManager.Instance.PurchaseItemAndSubstractMoney();
+        StoreManager.Instance.SellItemAndAddMoney();
     }
 }

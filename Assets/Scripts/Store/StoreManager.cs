@@ -14,19 +14,9 @@ public class StoreManager : MonoBehaviour
         Instance = this;
     }
 
-    public void SetProductCostToPurchase(Products productsCost)
+    public void SetProductCostToPurchase(int productsCost)
     {
-        switch (productsCost)
-        {
-            case Products.Hood1:
-                i_itemCost = 1;
-                break;
-            case Products.Hood2:
-                i_itemCost = 2;
-                break;
-            default:
-                break;
-        }
+        i_itemCost = productsCost;
     }
 
     /// <summary>
@@ -54,8 +44,8 @@ public class StoreManager : MonoBehaviour
     }
 }
 
-public enum Products
-{
-    Hood1,
-    Hood2,
-}
+//public enum Products
+//{
+//    Hood1,
+//    Hood2,
+//}

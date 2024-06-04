@@ -25,11 +25,15 @@ public class Interactable : MonoBehaviour
         b_isInRange = false;
     }
 
+    /// <summary>
+    /// Interacts and triger the Unity event
+    /// </summary>
+    /// <param name="obj"></param>
     private void Interact(InputAction.CallbackContext obj)
     {
         if (b_isInRange)
         {
-            Debug.Log("Interacting");
+            //Debug.Log("Interacting");
             interactEvent.Invoke();
         }
     }
