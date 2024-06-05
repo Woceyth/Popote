@@ -29,7 +29,8 @@ public class StoreInventory : MonoBehaviour
         for( int i = 0; i < i_NumberOfProducts; ++i)
         {
             // Make a random list of the elements
-            int i_randomIndex = UnityEngine.Random.Range(0, a_pd_UIItem.Length);
+            //int i_randomIndex = UnityEngine.Random.Range(0, a_pd_UIItem.Length);
+            int i_randomIndex = i;
             GameObject go_ListElement = Instantiate(go_UIItem, t_parent);
 
             // Set the products details to the store listing
@@ -53,14 +54,15 @@ public class StoreInventory : MonoBehaviour
     {
         int freeIndex = bagInventoryScript.ReturnClearestBagElement();
         bagInventoryScript.a_is_UIItem[ freeIndex ].product = l_productList[i_elementIndex].product;
+        bagInventoryScript.a_is_UIItem[ freeIndex ].product.cost = l_productList[i_elementIndex].i_cost;
 
         // Fill the information in the ui
         //bagInventoryScript.a_is_UIItem[freeIndex].name = bagInventoryScript.a_is_UIItem[freeIndex].product.name;
         bagInventoryScript.a_is_UIItem[freeIndex].i_icon.sprite = bagInventoryScript.a_is_UIItem[freeIndex].product.icon;
 
         // remove element from the list
-        //Destroy(l_productList[i_elementIndex].gameObject);
-        l_productList[i_elementIndex].gameObject.SetActive(false);
+        Destroy(l_productList[i_elementIndex].gameObject);
+        //l_productList[i_elementIndex].gameObject.SetActive(false);
         l_productList.RemoveAt(i_elementIndex);
         i_NumberOfProducts--;
     }

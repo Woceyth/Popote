@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3535323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -153,11 +153,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1140596557}
-  m_Father: {fileID: 466300330}
+  m_Father: {fileID: 509465495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: -270}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 930, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3535324
@@ -174,10 +174,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   i_NumberOfProducts: 7
   i_bagIndex: 0
+  i_swapIndex: 0
   go_UIItem: {fileID: 4940049108639243393, guid: f6ff64bd626afc541bbc0e55300d7758, type: 3}
   a_is_UIItem: []
   t_parent: {fileID: 1140596557}
   equippedGearInventory: {fileID: 566942525}
+  equipButton: {fileID: 382656384}
+  sellButton: {fileID: 761226416}
 --- !u!1 &6229952
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +269,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PurchaseButton, Assembly-CSharp
         m_MethodName: PurchaseProduct
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6229954}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -570,6 +585,7 @@ GameObject:
   - component: {fileID: 382656386}
   - component: {fileID: 382656385}
   - component: {fileID: 382656384}
+  - component: {fileID: 382656387}
   m_Layer: 5
   m_Name: Equip Button
   m_TagString: Untagged
@@ -641,9 +657,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 382656381}
-        m_TargetAssemblyTypeName: PurchaseButton, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 382656387}
+        m_TargetAssemblyTypeName: EquipButton, Assembly-CSharp
+        m_MethodName: EquipAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -691,6 +707,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382656381}
   m_CullTransparentMesh: 1
+--- !u!114 &382656387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382656381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6b2d2eafd717846850c8f1c5ceff75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_bag_temp: {fileID: 0}
+  pd_equipped_temp: {fileID: 0}
+  bagInventoryScript: {fileID: 3535324}
+  equippedGearInventoryScript: {fileID: 566942525}
 --- !u!1 &413305148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1092,7 @@ RectTransform:
   - {fileID: 1906235352}
   - {fileID: 1147525631}
   - {fileID: 1339243008}
-  - {fileID: 3535323}
+  - {fileID: 509465495}
   - {fileID: 483507209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1106,6 +1138,57 @@ RectTransform:
   m_AnchoredPosition: {x: 765, y: 500}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &509465494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509465495}
+  - component: {fileID: 509465496}
+  m_Layer: 5
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &509465495
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509465494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3535323}
+  m_Father: {fileID: 466300330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -500, y: -270}
+  m_SizeDelta: {x: 930, y: 190}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &509465496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509465494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8373385f4919854c97988579107b908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmp_conQuantityText: {fileID: 1228722691}
+  i_itemCost: 0
 --- !u!1 &513707583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d52204abe474644d9868b5e5f44cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  i_itemType: 0
+  i_swapi_swapIndex: 0
   a_pd_currenltyEquipped:
   - {fileID: 11400000, guid: 83cbd783b20fac04b8e97e691d2afb7f, type: 2}
   - {fileID: 11400000, guid: ef1d1cbb21722624f83cffe4d9465a14, type: 2}
@@ -1389,6 +1474,11 @@ MonoBehaviour:
   l_equippedSlot: []
   go_UIEquippedItem: {fileID: 8780773015864931854, guid: 673d2a39837574341922d6c91b106a89, type: 3}
   t_parent: {fileID: 341578296}
+  s_playerHood: {fileID: 7737047360594705986}
+  s_playerVest: {fileID: 8254275497056874925}
+  s_playerBelt: {fileID: 2232260962053502231}
+  s_playerRightHand: {fileID: 2939263459499852374}
+  s_playerLeftHand: {fileID: 631727934214397507}
 --- !u!1 &745762711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,10 +1653,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761226413}
-        m_TargetAssemblyTypeName: PurchaseButton, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 761226419}
+        m_TargetAssemblyTypeName: SellButton, Assembly-CSharp
+        m_MethodName: SellProduct
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 761226416}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1625,6 +1727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec64b7cafe9f5544295b7a632d7f218b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagInventoryScript: {fileID: 3535324}
 --- !u!1 &872047199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeInventoryScript: {fileID: 1001184896}
+  tmp_conQuantityText: {fileID: 1228722691}
   i_itemCost: 0
 --- !u!1 &1191257590
 GameObject:
@@ -2436,6 +2540,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6229954}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 761226416}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1191257593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,6 +2625,7 @@ GameObject:
   - component: {fileID: 1228722690}
   - component: {fileID: 1228722692}
   - component: {fileID: 1228722691}
+  - component: {fileID: 1228722693}
   m_Layer: 5
   m_Name: Coins Number (TMP)
   m_TagString: Untagged
@@ -2622,6 +2751,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228722689}
   m_CullTransparentMesh: 1
+--- !u!114 &1228722693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228722689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e6b0db5604c244190160b2b301fd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmp_conQuantityText: {fileID: 1228722691}
 --- !u!1 &1289209698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,7 +2884,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3535322}
+      - m_Target: {fileID: 509465494}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -2757,6 +2899,18 @@ MonoBehaviour:
       - m_Target: {fileID: 483507208}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 382656384}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2813,7 +2967,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339243008}
-  - component: {fileID: 1339243009}
   m_Layer: 5
   m_Name: Equipment (Player)
   m_TagString: Untagged
@@ -2844,19 +2997,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1339243009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339243007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8373385f4919854c97988579107b908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  i_itemCost: 0
 --- !u!1 &1437178618
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,7 +4775,7 @@ MonoBehaviour:
   go_backgroundImage: {fileID: 1906235351}
   go_closeButton: {fileID: 1191257590}
   go_storeFrame: {fileID: 1147525630}
-  go_bagFrame: {fileID: 3535322}
+  go_bagFrame: {fileID: 509465494}
   go_coinLabel: {fileID: 483507208}
 --- !u!212 &212000008837656154
 SpriteRenderer:

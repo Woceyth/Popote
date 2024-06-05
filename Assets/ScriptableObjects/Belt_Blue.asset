@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Blue Belt
   description: It's blue
   cost: 5
-  type: 5
+  type: 3
   icon: {fileID: 21300000, guid: 0c6412d95175c2b40bd9a27f7d1fa096, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,17 @@ using UnityEngine;
 public class EquippedGearInventory : MonoBehaviour
 {
     private readonly int i_NumberOfSlots = 5;
+    public int i_itemType;
+    public int i_swapi_swapIndex;
     public ProductData[] a_pd_currenltyEquipped;
     public List<EquippedSlot> l_equippedSlot;
     public GameObject go_UIEquippedItem;
     public Transform t_parent;
+    public SpriteRenderer s_playerHood;
+    public SpriteRenderer s_playerVest;
+    public SpriteRenderer s_playerBelt;
+    public SpriteRenderer s_playerRightHand;
+    public SpriteRenderer s_playerLeftHand;
 
     // Start is called before the first frame update
     void Start()
@@ -32,4 +40,13 @@ public class EquippedGearInventory : MonoBehaviour
         l_equippedSlot[3].gearText.text = "RightHand";
         l_equippedSlot[4].gearText.text = "LefHand";
     }
+
+    public void ChangePlayersClothes()
+    {
+        s_playerHood.sprite = l_equippedSlot[0].i_icon.sprite;
+        s_playerVest.sprite = l_equippedSlot[1].i_icon.sprite;
+        s_playerBelt.sprite = l_equippedSlot[2].i_icon.sprite;
+        s_playerRightHand.sprite = l_equippedSlot[3].i_icon.sprite;
+        s_playerLeftHand.sprite = l_equippedSlot[4].i_icon.sprite;
+}
 }

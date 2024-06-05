@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Red Belt
   description: It's red
   cost: 5
-  type: 5
+  type: 3
   icon: {fileID: 21300000, guid: c376d5b80d02ffe4ba89fd03d60ec471, type: 3}

@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Left Red Glove
   description: It's red
   cost: 5
-  type: 2
+  type: 4
   icon: {fileID: 21300000, guid: 48ecbe245379f214497aae538fe1d4f3, type: 3}

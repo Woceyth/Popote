@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         Instance = this;
         iar_Inventory.action.started += Inventory;
+        i_Money = 60;
     }
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
 
     private void Inventory(InputAction.CallbackContext obj)
     {
-        Debug.Log("Inventory");
+        //Debug.Log("Inventory");
         b_active = !b_active;
         go_inventoryFrame.SetActive(b_active);
         go_backgroundImage.SetActive(b_active);
