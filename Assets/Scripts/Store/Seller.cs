@@ -7,7 +7,7 @@ public class Seller : MonoBehaviour
     public GameObject go_backgroundImage;
     public GameObject go_closeButton;
     public GameObject go_storeFrame;
-    public GameObject go_inventoryFrame;
+    public GameObject go_bagFrame;
     public GameObject go_coinLabel;
 
     /// <summary>
@@ -20,6 +20,7 @@ public class Seller : MonoBehaviour
         go_backgroundImage.SetActive(true);
         go_closeButton.SetActive(true);
         go_coinLabel.SetActive(true);
+        go_bagFrame.SetActive(true);
         Cursor.visible = true;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PurchaseButton : MonoBehaviour
 {
+
     /// <summary>
     /// Purchase your item
     /// </summary>
@@ -11,5 +12,6 @@ public class PurchaseButton : MonoBehaviour
     {
         Debug.Log("BUY");
         StoreManager.Instance.PurchaseItemAndSubstractMoney();
+        StoreManager.Instance.storeInventoryScript.GiveProductToBag();
     }
 }

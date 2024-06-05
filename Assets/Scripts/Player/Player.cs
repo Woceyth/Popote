@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject go_backgroundImage;
     public GameObject go_closeButton;
     public GameObject go_inventoryFrame;
+    public GameObject go_bagFrame;
     public GameObject go_coinsLabel;
 
     private Vector2 v2_movementDirection;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         go_backgroundImage.SetActive(b_active);
         go_closeButton.SetActive(b_active);
         go_coinsLabel.SetActive(b_active);
+        go_bagFrame.SetActive(b_active);
     }
 
     // Update is called once per frame

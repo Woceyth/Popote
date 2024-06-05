@@ -7,7 +7,8 @@ using System;
 
 public class ProductSelected : MonoBehaviour
 {
-    public int i_itemID;
+    public int i_itemIndex;
+    public ProductData product;
     public GameObject go_iconFrame;
     public Image s_icon;
     public TextMeshProUGUI t_name;
@@ -27,6 +28,7 @@ public class ProductSelected : MonoBehaviour
         si_script.DeselectEveryItem();
         go_iconFrame.SetActive(true);
         b_buyButton.interactable = true;
+        StoreManager.Instance.storeInventoryScript.i_elementIndex = i_itemIndex;
         StoreManager.Instance.SetProductCostToPurchase(i_cost);
         //SetTextRed();
     }

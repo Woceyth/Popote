@@ -5,6 +5,7 @@ using UnityEngine;
 public class StoreManager : MonoBehaviour
 {
     public static StoreManager Instance;
+    public StoreInventory storeInventoryScript;
 
     public int i_itemCost;
     private int i_playerMoney;
@@ -36,9 +37,3 @@ public class StoreManager : MonoBehaviour
         Instance = null;
     }
 }
-
-//public enum Products
-//{
-//    Hood1,
-//    Hood2,
-//}

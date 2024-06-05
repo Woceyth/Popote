@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b75ba8fc635c3d249a6f35038bdff43a, type: 3}
-  m_Name: RedHood
+  m_Name: Vest_Blue
   m_EditorClassIdentifier: 
-  name: Red Hood
-  description: It's red
-  cost: 10
-  type: 1
-  icon: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
+  name: Blue Vest
+  description: It's green
+  cost: 5
+  type: 2
+  icon: {fileID: 21300000, guid: 124013dbba7f284489ac16156c930131, type: 3}

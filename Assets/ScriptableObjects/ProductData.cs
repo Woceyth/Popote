@@ -8,5 +8,6 @@ public class ProductData : ScriptableObject
     public new string name;
     public string description;
     public int cost;
+    public int type;
     public Sprite icon;
 }
