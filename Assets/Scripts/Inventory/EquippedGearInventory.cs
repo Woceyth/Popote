@@ -46,7 +46,7 @@ public class EquippedGearInventory : MonoBehaviour
         s_playerHood.sprite = l_equippedSlot[0].i_icon.sprite;
         s_playerVest.sprite = l_equippedSlot[1].i_icon.sprite;
         s_playerBelt.sprite = l_equippedSlot[2].i_icon.sprite;
-        s_playerRightHand.sprite = l_equippedSlot[3].i_icon.sprite;
-        s_playerLeftHand.sprite = l_equippedSlot[4].i_icon.sprite;
+        s_playerRightHand.sprite = l_equippedSlot[4].i_icon.sprite;
+        s_playerLeftHand.sprite = l_equippedSlot[3].i_icon.sprite;
 }
 }

@@ -24,13 +24,22 @@ public class ProductSelected : MonoBehaviour
     /// </summary>
     public void CommunicateWithManager()
     {
-        Debug.Log("Pressed product button");
-        si_script.DeselectEveryItem();
-        go_iconFrame.SetActive(true);
-        b_buyButton.interactable = true;
-        StoreManager.Instance.storeInventoryScript.i_elementIndex = i_itemIndex;
-        StoreManager.Instance.SetProductCostToPurchase(i_cost);
-        //SetTextRed();
+        //Debug.Log("Pressed product button");
+        if ( StoreManager.Instance.QuestionIfAffordable(i_cost) )
+        {
+            Debug.Log("Can Purchase the item");
+            si_script.DeselectEveryItem();
+            si_script.SetTextBlack();
+            go_iconFrame.SetActive(true);
+            b_buyButton.interactable = true;
+            StoreManager.Instance.storeInventoryScript.i_elementIndex = i_itemIndex;
+            StoreManager.Instance.SetProductCostToPurchase(i_cost);
+        }
+        else
+        {
+            SetTextRed();
+            Debug.Log("Not enough Money");
+        }
     }
 
     /// <summary>
@@ -43,6 +52,9 @@ public class ProductSelected : MonoBehaviour
         //t_description.color = Color.red;
     }
 
+    /// <summary>
+    /// Disables the frame
+    /// </summary>
     public void DisableFrame()
     {
         Debug.Log("DisableFrame");

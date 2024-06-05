@@ -11,6 +11,7 @@ public class BagInventory : MonoBehaviour
     public int i_swapIndex;
     public GameObject go_UIItem;
     public InventorySlot[] a_is_UIItem;
+    public InventorySelected[] is_frames;
     public Transform t_parent;
     public EquippedGearInventory equippedGearInventory;
 
@@ -22,6 +23,7 @@ public class BagInventory : MonoBehaviour
     void Start()
     {
         a_is_UIItem = new InventorySlot[i_NumberOfProducts];
+        is_frames = new InventorySelected[i_NumberOfProducts];
         CreateSlots();
     }
 
@@ -42,6 +44,7 @@ public class BagInventory : MonoBehaviour
             is_button.sellButton = sellButton;
             is_element.i_index = i;
             a_is_UIItem[i] = is_element;
+            is_frames[i] = is_button;
         }
     }
 
@@ -59,5 +62,16 @@ public class BagInventory : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    /// <summary>
+    /// Deselect Every item
+    /// </summary>
+    public void DeselectEveryItem()
+    {
+        for (int i = 0; i < i_NumberOfProducts; ++i)
+        {
+            is_frames[i].DisableFrame();
+        }
     }
 }

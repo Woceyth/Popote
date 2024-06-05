@@ -11,4 +11,14 @@ public class CloseButton : MonoBehaviour
     {
         Cursor.visible = false;
     }
+
+    /// <summary>
+    /// Enable the players controller
+    /// </summary>
+    public void EnablePlayerMovement()
+    {
+        Player.Instance.EnablePlayerMovement();
+        Player.Instance.EnablePlayerInteraction();
+        Player.Instance.SetActiveFalse();
+    }
 }

@@ -59,12 +59,6 @@ public class StoreInventory : MonoBehaviour
         // Fill the information in the ui
         //bagInventoryScript.a_is_UIItem[freeIndex].name = bagInventoryScript.a_is_UIItem[freeIndex].product.name;
         bagInventoryScript.a_is_UIItem[freeIndex].i_icon.sprite = bagInventoryScript.a_is_UIItem[freeIndex].product.icon;
-
-        // remove element from the list
-        Destroy(l_productList[i_elementIndex].gameObject);
-        //l_productList[i_elementIndex].gameObject.SetActive(false);
-        l_productList.RemoveAt(i_elementIndex);
-        i_NumberOfProducts--;
     }
 
 
@@ -76,6 +70,17 @@ public class StoreInventory : MonoBehaviour
         for (int i = 0; i < i_NumberOfProducts; ++i)
         {
             l_productList[i].DisableFrame();
+        }
+    }
+
+    /// <summary>
+    /// Set the text color to black
+    /// </summary>
+    public void SetTextBlack()
+    {
+        for (int i = 0; i < i_NumberOfProducts; ++i)
+        {
+            l_productList[i].t_name.color = Color.black;
         }
     }
 }

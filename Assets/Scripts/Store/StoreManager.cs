@@ -27,6 +27,23 @@ public class StoreManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Check if the player can purchase this product
+    /// </summary>
+    /// <param name="productsCost"></param>
+    /// <returns></returns>
+    public bool QuestionIfAffordable(int productsCost)
+    {
+        if(Player.Instance.GetMoneyQuantity() < productsCost)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /// <summary>
     /// Make the purchase and substract the money, then update the gui
     /// </summary>
     /// <param name="cost"></param>

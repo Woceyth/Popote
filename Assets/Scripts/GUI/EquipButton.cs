@@ -15,18 +15,21 @@ public class EquipButton : MonoBehaviour
     /// </summary>
     public void EquipAction()
     {
-        // Makes temporal values and indexes required to get the item type required to swap
-        is_bag_temp = bagInventoryScript.a_is_UIItem[ bagInventoryScript.i_swapIndex ];
-        int equippedTempIndex = GetItemIndexFromProductType(bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex].product.type);
-        pd_equipped_temp = equippedGearInventoryScript.a_pd_currenltyEquipped[equippedTempIndex];
-        
-        // Swaps and refresh the GUI depending if its the bag or the equipment
-        SetValuesOnGUI(equippedGearInventoryScript.a_pd_currenltyEquipped[equippedTempIndex], equippedTempIndex, true );
-        SetValuesOnGUI(bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex].product, bagInventoryScript.i_swapIndex, false);
-        
-        // Release
-        is_bag_temp = null;
-        pd_equipped_temp = null;
+        if (bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex].product != null)
+        {
+            // Makes temporal values and indexes required to get the item type required to swap
+            is_bag_temp = bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex];
+            int equippedTempIndex = GetItemIndexFromProductType(bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex].product.type);
+            pd_equipped_temp = equippedGearInventoryScript.a_pd_currenltyEquipped[equippedTempIndex];
+
+            // Swaps and refresh the GUI depending if its the bag or the equipment
+            SetValuesOnGUI(equippedGearInventoryScript.a_pd_currenltyEquipped[equippedTempIndex], equippedTempIndex, true);
+            SetValuesOnGUI(bagInventoryScript.a_is_UIItem[bagInventoryScript.i_swapIndex].product, bagInventoryScript.i_swapIndex, false);
+
+            // Release
+            is_bag_temp = null;
+            pd_equipped_temp = null;
+        }
     }
 
     private void SetValuesOnGUI(ProductData productData, int index, bool isbagORequipment)

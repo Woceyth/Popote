@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public GameObject go_inventoryFrame;
     public GameObject go_bagFrame;
     public GameObject go_coinsLabel;
+    public Animator a_animator;
+    private readonly int i_RunBool = Animator.StringToHash("Run");
 
     private Vector2 v2_movementDirection;
     private float f_directionRecoded = 1f;
@@ -28,6 +30,30 @@ public class Player : MonoBehaviour
         Instance = this;
         iar_Inventory.action.started += Inventory;
         i_Money = 60;
+    }
+
+    /// <summary>
+    /// Enables the player movement
+    /// </summary>
+    public void EnablePlayerMovement()
+    {
+        iar_Movement.action.Enable();
+    }
+
+    /// <summary>
+    /// Enables the player interaction
+    /// </summary>
+    public void EnablePlayerInteraction()
+    {
+        iar_Inventory.action.started += Inventory;
+    }
+
+    /// <summary>
+    /// Set active boolan false, this is used for the input handling
+    /// </summary>
+    public void SetActiveFalse()
+    {
+        b_active = false;
     }
 
     // Start is called before the first frame update
@@ -45,6 +71,17 @@ public class Player : MonoBehaviour
         go_closeButton.SetActive(b_active);
         go_coinsLabel.SetActive(b_active);
         go_bagFrame.SetActive(b_active);
+
+        //Debug.Log("b_active: " + b_active);
+        if (b_active == true)
+        {
+            DisablePlayerMovement();
+        }
+        else
+        {
+            EnablePlayerMovement();
+        }
+        
     }
 
     // Update is called once per frame
@@ -59,6 +96,11 @@ public class Player : MonoBehaviour
         if (v2_movementDirection.x != 0 )
         { 
             f_directionRecoded = Mathf.Round(v2_movementDirection.x);
+            a_animator.SetBool(i_RunBool, true);
+        }
+        else
+        {
+            a_animator.SetBool(i_RunBool, false);
         }
         transform.localScale = new Vector3( f_directionRecoded, 1f, 1f );
     }
@@ -80,6 +122,22 @@ public class Player : MonoBehaviour
     {
         i_Money = newQuantity;
         Debug.Log("i_Money: " + i_Money);
+    }
+
+    /// <summary>
+    /// Disables the character movement
+    /// </summary>
+    public void DisablePlayerMovement()
+    {
+        iar_Movement.action.Disable();
+    }
+
+    /// <summary>
+    /// Enables the player interaction
+    /// </summary>
+    public void DisablePlayerInteraction()
+    {
+        iar_Inventory.action.started -= Inventory;
     }
 
     private void OnDestroy()

@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     public bool b_isInRange;
     public InputActionReference iar_Interact;
     public UnityEvent interactEvent;
+    public SpriteRenderer sr_spriteRenderer;
 
     private void OnEnable()
     {
@@ -18,11 +19,13 @@ public class Interactable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         b_isInRange = true;
+        sr_spriteRenderer.enabled = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         b_isInRange = false;
+        sr_spriteRenderer.enabled = false;
     }
 
     /// <summary>
@@ -34,6 +37,9 @@ public class Interactable : MonoBehaviour
         if (b_isInRange)
         {
             //Debug.Log("Interacting");
+            Cursor.visible = true;
+            Player.Instance.DisablePlayerMovement();
+            Player.Instance.DisablePlayerInteraction();
             interactEvent.Invoke();
         }
     }
